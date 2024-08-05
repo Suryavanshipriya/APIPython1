@@ -13,7 +13,9 @@ PORT = 5432  # Default PostgreSQL port
 DATABASE = 'testdb'  # Replace with your PostgreSQL database name
 
 # Create a SQLAlchemy engine
-engine = create_engine(f'{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}')
+#engine = create_engine(f'{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}')
+engine = create_engine('{0}+{1}://{2}:{3}@{4}:{5}/{6}'.format(
+    DATABASE_TYPE, DBAPI, USER, PASSWORD, ENDPOINT, PORT, DATABASE))
 
 # Read the CSV file into a DataFrame
 csv_file_path = r'C:\Users\nimba\Downloads\customers.csv'  # Replace with the path to your CSV file
